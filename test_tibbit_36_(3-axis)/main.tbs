@@ -1,0 +1,15 @@
+include "global.tbh"
+
+'====================================================================
+sub on_sys_init()
+	if tbt36_init(NO)=NG then
+		sys.debugprint("SSI channel could not be allocated, using bit banging instead."+CR_LF)
+	end if
+end sub
+
+sub on_sys_timer()
+	dim x,y,z as integer
+	
+	tbt36_get_mg(x,y,z)
+	sys.debugprint("X="+stri(x)+" Y="+stri(y)+" Z="+stri(z)+CR_LF)
+end sub

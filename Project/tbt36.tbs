@@ -78,11 +78,7 @@ function tbt36_init(use_ssi as no_yes)as ok_ng
 	if i2c_num_tbt36<4 then
 		ssi.channel=i2c_num_tbt36
 		ssi.enabled=NO
-		#IF PLATFORM_ID=TPP2WG2 or PLATFORM_ID=TPP3WG2
-			ssi.baudrate=15
-		#elif PLATFORM_ID=TPP2W or PLATFORM_ID=TPP3W or PLATFORM_ID=TPP2N or PLATFORM_ID=TPP3N
-			ssi.baudrate=10
-		#endif
+		ssi.baudrate=PL_SSI_BAUDRATES_400kHz
 		ssi.clkmap=TBT36_CLK_PIN
 		ssi.dimap=TBT36_DATA_PIN
 		ssi.domap=TBT36_DATA_PIN
